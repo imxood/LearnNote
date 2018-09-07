@@ -711,3 +711,7 @@ dd命令创建虚拟设备文件:
 
 ## 显示中文字体
 fc-list :lang=zh
+
+
+lsof -p 21943
+sudo ls -l /proc/21943/fd

@@ -10,20 +10,20 @@ import java.util.List;
 /**
  * User: DongXiangli
  * Date: 12-12-23
- * Time: ÏÂÎç10:48
+ * Time: ä¸‹åˆ10:48
  */
 public class PageUtils<T> implements Serializable {
     public static final String ASC = "asc";
     public static final String DESC = "desc";
  
-    protected int pageNo = 1;                //µ±Ç°Ò³ºÅ
-    protected int pageSize = -1;             //Ò³ÄÚ¼ÇÂ¼Êı
-    protected String orderBy = null;         //ÅÅĞò×Ö¶Î£¬»ù±¾Ã»ÓĞÊ¹ÓÃ
-    protected String order = ASC;            //ÅÅĞò·½Ïò
-    protected boolean autoCount = false;     //×Ô¶¯¼ÆËã¼ÇÂ¼Êı
+    protected int pageNo = 1;                //å½“å‰é¡µå·
+    protected int pageSize = -1;             //é¡µå†…è®°å½•æ•°
+    protected String orderBy = null;         //æ’åºå­—æ®µï¼ŒåŸºæœ¬æ²¡æœ‰ä½¿ç”¨
+    protected String order = ASC;            //æ’åºæ–¹å‘
+    protected boolean autoCount = false;     //è‡ªåŠ¨è®¡ç®—è®°å½•æ•°
  
-    private List<T> data = null;             //Êı¾İ
-    private long totalCount = -1;            //×Ü¼ÇÂ¼Êı
+    private List<T> data = null;             //æ•°æ®
+    private long totalCount = -1;            //æ€»è®°å½•æ•°
  
     public PageUtils() {
         this(1, 20);
@@ -49,7 +49,7 @@ public class PageUtils<T> implements Serializable {
     }
  
     /**
-     * »ñµÃÃ¿Ò³µÄ¼ÇÂ¼ÊıÁ¿,ÎŞÄ¬ÈÏÖµ.
+     * è·å¾—æ¯é¡µçš„è®°å½•æ•°é‡,æ— é»˜è®¤å€¼.
      */
     public int getPageSize() {
         return pageSize;
@@ -60,14 +60,14 @@ public class PageUtils<T> implements Serializable {
     }
  
     /**
-     * ÊÇ·ñÒÑÉèÖÃÃ¿Ò³µÄ¼ÇÂ¼ÊıÁ¿.
+     * æ˜¯å¦å·²è®¾ç½®æ¯é¡µçš„è®°å½•æ•°é‡.
      */
     public boolean isPageSizeSetted() {
         return pageSize > -1;
     }
  
     /**
-     * »ñµÃµ±Ç°Ò³µÄÒ³ºÅ,ĞòºÅ´Ó1¿ªÊ¼,Ä¬ÈÏÎª1.
+     * è·å¾—å½“å‰é¡µçš„é¡µå·,åºå·ä»1å¼€å§‹,é»˜è®¤ä¸º1.
      */
     public int getPageNo() {
         return pageNo;
@@ -78,7 +78,7 @@ public class PageUtils<T> implements Serializable {
     }
  
     /**
-     * ¸ù¾İpageNoºÍpageSize¼ÆËãµ±Ç°Ò³µÚÒ»Ìõ¼ÇÂ¼ÔÚ×Ü½á¹û¼¯ÖĞµÄÎ»ÖÃ,ĞòºÅ´Ó0¿ªÊ¼.
+     * æ ¹æ®pageNoå’ŒpageSizeè®¡ç®—å½“å‰é¡µç¬¬ä¸€æ¡è®°å½•åœ¨æ€»ç»“æœé›†ä¸­çš„ä½ç½®,åºå·ä»0å¼€å§‹.
      */
     public int getFirst() {
         if (pageNo < 1 || pageSize < 1)
@@ -88,14 +88,14 @@ public class PageUtils<T> implements Serializable {
     }
  
     /**
-     * ÊÇ·ñÒÑÉèÖÃµÚÒ»Ìõ¼ÇÂ¼¼ÇÂ¼ÔÚ×Ü½á¹û¼¯ÖĞµÄÎ»ÖÃ.
+     * æ˜¯å¦å·²è®¾ç½®ç¬¬ä¸€æ¡è®°å½•è®°å½•åœ¨æ€»ç»“æœé›†ä¸­çš„ä½ç½®.
      */
     public boolean isFirstSetted() {
         return (pageNo > 0 && pageSize > 0);
     }
  
     /**
-     * »ñµÃÅÅĞò×Ö¶Î,ÎŞÄ¬ÈÏÖµ.
+     * è·å¾—æ’åºå­—æ®µ,æ— é»˜è®¤å€¼.
      */
     public String getOrderBy() {
         return orderBy;
@@ -106,7 +106,7 @@ public class PageUtils<T> implements Serializable {
     }
  
     /**
-     * ÊÇ·ñÒÑÉèÖÃÅÅĞò×Ö¶Î.
+     * æ˜¯å¦å·²è®¾ç½®æ’åºå­—æ®µ.
      */
     public boolean isOrderBySetted() {
         if (orderBy != null) {
@@ -117,16 +117,16 @@ public class PageUtils<T> implements Serializable {
     }
  
     /**
-     * »ñµÃÅÅĞò·½Ïò,Ä¬ÈÏÎªasc.
+     * è·å¾—æ’åºæ–¹å‘,é»˜è®¤ä¸ºasc.
      */
     public String getOrder() {
         return order;
     }
  
     /**
-     * ÉèÖÃÅÅĞò·½Ê½Ïò.
+     * è®¾ç½®æ’åºæ–¹å¼å‘.
      *
-     * @param order ¿ÉÑ¡ÖµÎªdesc»òasc.
+     * @param order å¯é€‰å€¼ä¸ºdescæˆ–asc.
      */
     public void setOrder(String order) {
         if (ASC.equalsIgnoreCase(order) || DESC.equalsIgnoreCase(order)) {
@@ -136,8 +136,8 @@ public class PageUtils<T> implements Serializable {
     }
  
     /**
-     * ÊÇ·ñ×Ô¶¯»ñÈ¡×ÜÒ³Êı,Ä¬ÈÏÎªfalse.
-     * ×¢Òâ±¾ÊôĞÔ½öÓÚquery by CriteriaÊ±ÓĞĞ§,query by HQLÊ±±¾ÊôĞÔÎŞĞ§.
+     * æ˜¯å¦è‡ªåŠ¨è·å–æ€»é¡µæ•°,é»˜è®¤ä¸ºfalse.
+     * æ³¨æ„æœ¬å±æ€§ä»…äºquery by Criteriaæ—¶æœ‰æ•ˆ,query by HQLæ—¶æœ¬å±æ€§æ— æ•ˆ.
      */
     public boolean isAutoCount() {
         return autoCount;
@@ -148,7 +148,7 @@ public class PageUtils<T> implements Serializable {
     }
  
     /**
-     * È¡µÃµ¹×ªµÄÅÅĞò·½Ïò
+     * å–å¾—å€’è½¬çš„æ’åºæ–¹å‘
      */
     public String getInverseOrder() {
         if (order.endsWith(DESC))
@@ -158,7 +158,7 @@ public class PageUtils<T> implements Serializable {
     }
  
     /**
-     * Ò³ÄÚµÄÊı¾İÁĞ±í.
+     * é¡µå†…çš„æ•°æ®åˆ—è¡¨.
      */
     public List<T> getData() {
         return this.data;
@@ -169,7 +169,7 @@ public class PageUtils<T> implements Serializable {
     }
  
     /**
-     * ×Ü¼ÇÂ¼Êı.
+     * æ€»è®°å½•æ•°.
      */
     public long getTotalCount() {
         return totalCount;
@@ -180,7 +180,7 @@ public class PageUtils<T> implements Serializable {
     }
  
     /**
-     * ¼ÆËã×ÜÒ³Êı.
+     * è®¡ç®—æ€»é¡µæ•°.
      */
     public long getTotalPages() {
         if (totalCount == -1)
@@ -194,14 +194,14 @@ public class PageUtils<T> implements Serializable {
     }
  
     /**
-     * ÊÇ·ñ»¹ÓĞÏÂÒ»Ò³.
+     * æ˜¯å¦è¿˜æœ‰ä¸‹ä¸€é¡µ.
      */
     public boolean isHasNext() {
         return (pageNo + 1 <= getTotalPages());
     }
  
     /**
-     * ·µ»ØÏÂÒ³µÄÒ³ºÅ,ĞòºÅ´Ó1¿ªÊ¼.
+     * è¿”å›ä¸‹é¡µçš„é¡µå·,åºå·ä»1å¼€å§‹.
      */
     public int getNextPage() {
         if (isHasNext())
@@ -211,14 +211,14 @@ public class PageUtils<T> implements Serializable {
     }
  
     /**
-     * ÊÇ·ñ»¹ÓĞÉÏÒ»Ò³.
+     * æ˜¯å¦è¿˜æœ‰ä¸Šä¸€é¡µ.
      */
     public boolean isHasPre() {
         return (pageNo - 1 >= 1);
     }
  
     /**
-     * ·µ»ØÉÏÒ³µÄÒ³ºÅ,ĞòºÅ´Ó1¿ªÊ¼.
+     * è¿”å›ä¸Šé¡µçš„é¡µå·,åºå·ä»1å¼€å§‹.
      */
     public int getPrePage() {
         if (isHasPre())

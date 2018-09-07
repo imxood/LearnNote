@@ -1,4 +1,4 @@
-1,IO²Ù×÷£º
+1,IOæ“ä½œï¼š
 
 
 
@@ -8,7 +8,7 @@
 
 
 
-2,Ïß³Ì²Ù×÷:
+2,çº¿ç¨‹æ“ä½œ:
 
 
 
@@ -20,7 +20,7 @@
 
 
 
-3,propertyÎÄ¼şµÄÅäÖÃ£º
+3,propertyæ–‡ä»¶çš„é…ç½®ï¼š
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -38,9 +38,9 @@ import java.util.Properties;
 public class GetSaveProp {
 
 	private void saveProperty() {
-		// ±£´æÎÄ¼ş
+		// ä¿å­˜æ–‡ä»¶
 		Properties propertie = new Properties();
-		String characterString = "1ÖĞ¹úµÄ";
+		String characterString = "1ä¸­å›½çš„";
 		propertie.setProperty("character", characterString);
 		propertie.setProperty("date", new Date().toString());
 
@@ -48,7 +48,7 @@ public class GetSaveProp {
 		String description = "CharaterTest";
 		try {
 			FileOutputStream outputFile = new FileOutputStream(fileName);
-			propertie.store(outputFile, description);// propertyÀà¹Ø¼üµÄstore·½·¨
+			propertie.store(outputFile, description);// propertyç±»å…³é”®çš„storeæ–¹æ³•
 			outputFile.close();
 			// propertie.list(System.out);
 			System.out.println("File was saved!");
@@ -94,47 +94,47 @@ public class GetSaveProp {
 
 
 
-4,HashMapÓëHashTable
+4,HashMapä¸HashTable
 
 
 
 
-5,Ê²Ã´ÊÇjavaĞòÁĞ»¯£¬ÈçºÎÊµÏÖjavaĞòÁĞ»¯£¿
+5,ä»€ä¹ˆæ˜¯javaåºåˆ—åŒ–ï¼Œå¦‚ä½•å®ç°javaåºåˆ—åŒ–ï¼Ÿ
 
-Java ´®ĞĞ»¯¼¼Êõ¿ÉÒÔÊ¹Äã½«Ò»¸ö¶ÔÏóµÄ×´Ì¬Ğ´ÈëÒ»¸öByte Á÷Àï£¬
-²¢ÇÒ¿ÉÒÔ´ÓÆäËüµØ·½°Ñ¸ÃByte Á÷ÀïµÄÊı¾İ¶Á³öÀ´£¬ÖØĞÂ¹¹ÔìÒ»¸öÏàÍ¬µÄ¶ÔÏó.
-ÕâÖÖ»úÖÆÔÊĞíÄã½«¶ÔÏóÍ¨¹ıÍøÂç½øĞĞ´«²¥£¬²¢¿ÉÒÔËæÊ±°Ñ¶ÔÏó³Ö¾Ã»¯µ½Êı¾İ¿â¡¢ÎÄ¼şµÈÏµÍ³Àï¡£
-JavaµÄ´®ĞĞ»¯»úÖÆÊÇRMI¡¢EJBµÈ¼¼ÊõµÄ¼¼Êõ»ù´¡¡£
-ÓÃÍ¾£ºÀûÓÃ¶ÔÏóµÄ´®ĞĞ»¯ÊµÏÖ±£´æÓ¦ÓÃ³ÌĞòµÄµ±Ç°¹¤×÷×´Ì¬£¬ÏÂ´ÎÔÙÆô¶¯µÄÊ±ºò½«×Ô¶¯µØ»Ö¸´µ½ÉÏ´ÎÖ´ĞĞµÄ×´Ì¬¡£
+Java ä¸²è¡ŒåŒ–æŠ€æœ¯å¯ä»¥ä½¿ä½ å°†ä¸€ä¸ªå¯¹è±¡çš„çŠ¶æ€å†™å…¥ä¸€ä¸ªByte æµé‡Œï¼Œ
+å¹¶ä¸”å¯ä»¥ä»å…¶å®ƒåœ°æ–¹æŠŠè¯¥Byte æµé‡Œçš„æ•°æ®è¯»å‡ºæ¥ï¼Œé‡æ–°æ„é€ ä¸€ä¸ªç›¸åŒçš„å¯¹è±¡.
+è¿™ç§æœºåˆ¶å…è®¸ä½ å°†å¯¹è±¡é€šè¿‡ç½‘ç»œè¿›è¡Œä¼ æ’­ï¼Œå¹¶å¯ä»¥éšæ—¶æŠŠå¯¹è±¡æŒä¹…åŒ–åˆ°æ•°æ®åº“ã€æ–‡ä»¶ç­‰ç³»ç»Ÿé‡Œã€‚
+Javaçš„ä¸²è¡ŒåŒ–æœºåˆ¶æ˜¯RMIã€EJBç­‰æŠ€æœ¯çš„æŠ€æœ¯åŸºç¡€ã€‚
+ç”¨é€”ï¼šåˆ©ç”¨å¯¹è±¡çš„ä¸²è¡ŒåŒ–å®ç°ä¿å­˜åº”ç”¨ç¨‹åºçš„å½“å‰å·¥ä½œçŠ¶æ€ï¼Œä¸‹æ¬¡å†å¯åŠ¨çš„æ—¶å€™å°†è‡ªåŠ¨åœ°æ¢å¤åˆ°ä¸Šæ¬¡æ‰§è¡Œçš„çŠ¶æ€ã€‚
 
 http://blog.csdn.net/yakihappy/article/details/3979373
 
 
-6,oracalµÄ°²×°
+6,oracalçš„å®‰è£…
 
 
 HKEY_LOCAL_MACHINE		
 		
 		SOFTWARE
-			ORACAL(É¾µô)
+			ORACAL(åˆ æ‰)
 		SYSTEM
-			ORACAL(ÒÔÕâ¸ö¿ªÍ·µÄÈ«É¾³ı)
+			ORACAL(ä»¥è¿™ä¸ªå¼€å¤´çš„å…¨åˆ é™¤)
 			CURRENTVONTROL_SET
 
-7,Ê±¼ä×ª»»:
-SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//ÉèÖÃÈÕÆÚ¸ñÊ½
-System.out.println(df.format(new Date()));// new Date()Îª»ñÈ¡µ±Ç°ÏµÍ³Ê±¼ä
+7,æ—¶é—´è½¬æ¢:
+SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//è®¾ç½®æ—¥æœŸæ ¼å¼
+System.out.println(df.format(new Date()));// new Date()ä¸ºè·å–å½“å‰ç³»ç»Ÿæ—¶é—´
 
 
 
 create trigger triggerName
 
-after/before insert/update/delete on ±íÃû
+after/before insert/update/delete on è¡¨å
 
-for each row   #Õâ¾ä»°ÔÚmysqlÊÇ¹Ì¶¨µÄ
+for each row   #è¿™å¥è¯åœ¨mysqlæ˜¯å›ºå®šçš„
 
 begin
 
-sqlÓï¾ä;
+sqlè¯­å¥;
 
 end;

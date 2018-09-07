@@ -1,8 +1,8 @@
  
- 1,注解Action
+ 1,娉ㄨВAction
  @Action(
 	value="logout",
 	results={@Result(name = "home",location="home.action",type="redirect")
 )
 
-type="redirect"：跳转到指定的jsp页面或action
+type="redirect"锛氳烦杞埌鎸囧畾鐨刯sp椤甸潰鎴朼ction
