@@ -710,4 +710,8 @@ dd命令创建虚拟设备文件:
     loop0    7:0    0 976.6M  0 loop /mnt
 
 ## 显示中文字体
-fc-list :lang=zh
+    fc-list :lang=zh
+
+## 解决ubuntu使用命令sudo apt -get install 安装东西时出现"E: Sub-process /usr/bin/dpkg returned an error code (1) "的错误
+    sudo mv /var/lib/dpkg/info /var/lib/dpkg/info.back
+    sudo mkdir /var/lib/dpkg/info
