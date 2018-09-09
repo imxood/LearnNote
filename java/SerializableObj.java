@@ -1,6 +1,6 @@
 package mymx.week2.tools;
 /**
- * ĞòÁĞ»¯¶ÔÏó
+ * åºåˆ—åŒ–å¯¹è±¡
  * 
  * */
 import java.io.File;
@@ -29,10 +29,10 @@ public class SerializableObj{
 		
 		JOptionPane.showMessageDialog(null, message, "Tips:", JOptionPane.INFORMATION_MESSAGE);			
 	}*/
-	//Ğ´ÈëĞÅÏ¢
+	//å†™å…¥ä¿¡æ¯
 	public String Write(Object obj,String filename){
 		try {
-			FileOutputStream fos=new FileOutputStream(filename);//´´½¨Êä³öÁ÷¶ÔÏó
+			FileOutputStream fos=new FileOutputStream(filename);//åˆ›å»ºè¾“å‡ºæµå¯¹è±¡
 			ObjectOutputStream oos=new ObjectOutputStream(fos);//object
 			oos.writeObject(obj);
 			oos.close();
@@ -44,14 +44,14 @@ public class SerializableObj{
 			return  ""+e;
 		}
 		
-		return "Ğ´Èë³É¹¦£¡";
+		return "å†™å…¥æˆåŠŸï¼";
 		
 	}
-	//¶ÁÈ¡ĞÅÏ¢
+	//è¯»å–ä¿¡æ¯
 	public Object Read(String filename){
 			Object obj;
 		try {
-			FileInputStream fis=new FileInputStream(filename);//ÊäÈëÁ÷¶ÔÏó
+			FileInputStream fis=new FileInputStream(filename);//è¾“å…¥æµå¯¹è±¡
 			ObjectInputStream ois=new ObjectInputStream(fis);
 			obj=(Object)ois.readObject();
 			ois.close();

@@ -486,3 +486,7 @@ mysql的root远程权限:
     创建一个peak用户:
     grant all privileges on robot.* to 'peak'@'%' identified by 'peak' with grant option;
     
+
+
+sssmx12345678
+mysqlmx12345678

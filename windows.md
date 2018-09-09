@@ -1,3 +1,6 @@
+## 根据网络端口查看当前进程
+    netstat -ano | findstr "8080"
+
 ## windows 10 挂载esp分区到Z盘(U盘似乎不能挂载)
     # diskpart 
     # list disk

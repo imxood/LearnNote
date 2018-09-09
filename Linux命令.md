@@ -72,8 +72,8 @@
 
 ### 用户管理:
 	先给个例子:
-	sudo useradd -m  -s /bin/bash maxu 添加用户maxu,设置home目录,home模板来自/etc/skel,指定bash
-	sudo userdel maxu -r
+	sudo useradd -m  -s /bin/bash maxu 添加用户maxu, 设置home目录, home模板来自/etc/skel, -s 指定bash, 若不指定, 则默认是/bin/sh, 没有tab自动补全及当前路径
+	sudo userdel maxu, 删除用户, 不删除用户目录, 若加上-r会把用户目录一起删掉
 
 	useradd 注：添加用户
 	passwd 注：为用户设置密码
@@ -715,3 +715,8 @@ dd命令创建虚拟设备文件:
 ## 解决ubuntu使用命令sudo apt -get install 安装东西时出现"E: Sub-process /usr/bin/dpkg returned an error code (1) "的错误
     sudo mv /var/lib/dpkg/info /var/lib/dpkg/info.back
     sudo mkdir /var/lib/dpkg/info
+fc-list :lang=zh
+
+
+lsof -p 21943
+sudo ls -l /proc/21943/fd

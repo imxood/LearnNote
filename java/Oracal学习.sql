@@ -1,176 +1,176 @@
 
-/* 1,³öÏÖ´íÎó£º
+/* 1,å‡ºç°é”™è¯¯ï¼š
 	ORA-01034: ORACLE not available 
     ORA-27101: shared memory realm does not exist
-  ½â¾ö°ì·¨: */
+  è§£å†³åŠæ³•: */
 		
 
-show user;--ÏÔÊ¾µ±Ç°
-conn username/password as sysdba;(»òsysoper)--Á¬½ÓÒ»¸öÓÃ»§ ÓµÓĞÊı¾İ¿âdbaµÄ½ÇÉ«
-disc;			--¶Ï¿ªÁ¬½Ó
-clear screen;	--ÇåÆÁ
-start xxxx.sql;	--Ö´ĞĞsql´úÂë
-@ xxx.sql;		----Ö´ĞĞsql´úÂë
-desc ±íÃû		--²é¿´Ò»¸ö±íµÄ½á¹¹
-spool  filename --ÁÙÊ±µÄ£¬Ô­À´ÔÚÅÌÖĞÊÇ²»´æÔÚµÄ£¬Ïàµ±ĞÂ½¨Ò»¸öÎÄ¼ş---¿ªÊ¼
-spool off	 	---½áÊø
-edit xxxx.sql 	--±à¼­sql´úÂë
+show user;--æ˜¾ç¤ºå½“å‰
+conn username/password as sysdba;(æˆ–sysoper)--è¿æ¥ä¸€ä¸ªç”¨æˆ· æ‹¥æœ‰æ•°æ®åº“dbaçš„è§’è‰²
+disc;			--æ–­å¼€è¿æ¥
+clear screen;	--æ¸…å±
+start xxxx.sql;	--æ‰§è¡Œsqlä»£ç 
+@ xxx.sql;		----æ‰§è¡Œsqlä»£ç 
+desc è¡¨å		--æŸ¥çœ‹ä¸€ä¸ªè¡¨çš„ç»“æ„
+spool  filename --ä¸´æ—¶çš„ï¼ŒåŸæ¥åœ¨ç›˜ä¸­æ˜¯ä¸å­˜åœ¨çš„ï¼Œç›¸å½“æ–°å»ºä¸€ä¸ªæ–‡ä»¶---å¼€å§‹
+spool off	 	---ç»“æŸ
+edit xxxx.sql 	--ç¼–è¾‘sqlä»£ç 
 
---ÓÃ»§¹ÜÀíµÄÒ»Ğ©ÃüÁî:
-	--dba¾ßÓĞ´´½¨ÓÃ»§µÄÈ¨Àû,Èç¹ûÈÃÓÃ»§¿É²Ù×÷ÆäËûÓÃ»§,¸øËû½ÇÉ«--dba
-		--´´½¨ÓÃ»§,ÃÜÂë²»ÄÜÒÔÊı×Ö¿ªÍ·,¸Õ´´½¨Ê±Ã»ÓĞÈÎºÎÈ¨ÏŞ
+--ç”¨æˆ·ç®¡ç†çš„ä¸€äº›å‘½ä»¤:
+	--dbaå…·æœ‰åˆ›å»ºç”¨æˆ·çš„æƒåˆ©,å¦‚æœè®©ç”¨æˆ·å¯æ“ä½œå…¶ä»–ç”¨æˆ·,ç»™ä»–è§’è‰²--dba
+		--åˆ›å»ºç”¨æˆ·,å¯†ç ä¸èƒ½ä»¥æ•°å­—å¼€å¤´,åˆšåˆ›å»ºæ—¶æ²¡æœ‰ä»»ä½•æƒé™
 			create user username identified by password;
-		--Ìí¼ÓÈ¨ÏŞ
-			--È¨ÏŞ¶ÔÏóÓĞ:
-			dba ¹ÜÀíÔ±È¨ÏŞ,ÓµÓĞÊı¾İ¿âµÄ×î¸ßÈ¨ÏŞ,È«²¿È¨ÏŞ
-			connect Êı¾İ¿âµÄÁ¬½ÓÈ¨ÏŞ
-			resource Êµ²ÙÈ¨ÏŞ
+		--æ·»åŠ æƒé™
+			--æƒé™å¯¹è±¡æœ‰:
+			dba ç®¡ç†å‘˜æƒé™,æ‹¥æœ‰æ•°æ®åº“çš„æœ€é«˜æƒé™,å…¨éƒ¨æƒé™
+			connect æ•°æ®åº“çš„è¿æ¥æƒé™
+			resource å®æ“æƒé™
 			
-			´´½¨ÆÕÍ¨ÓÃ»§£ºconnect resource
-			¹ÜÀíÔ±ÓÃ»§
+			åˆ›å»ºæ™®é€šç”¨æˆ·ï¼šconnect resource
+			ç®¡ç†å‘˜ç”¨æˆ·
 			
-			grant È¨ÏŞ¶ÔÏó [on tablename] to username [with grant option](username¿ÉÒÔ¼ÌĞø¸ø±ğÈËÊÚÈ¨);
+			grant æƒé™å¯¹è±¡ [on tablename] to username [with grant option](usernameå¯ä»¥ç»§ç»­ç»™åˆ«äººæˆæƒ);
 			
-		--ĞŞ¸ÄÃÜÂë
+		--ä¿®æ”¹å¯†ç 
 			(1)PASSWORD username; 
 			(2)PASSWORD;
-		--ĞŞ¸ÄÃÜÂë(¹ÜÀíÔ±¿ÉÒÔÓÃ)
+		--ä¿®æ”¹å¯†ç (ç®¡ç†å‘˜å¯ä»¥ç”¨)
 			alter user username identified by password;
-		--É¾³ıÓÃ»§
-			drop user username [cascade]--(¼¶ÁªÉ¾³ı)	
+		--åˆ é™¤ç”¨æˆ·
+			drop user username [cascade]--(çº§è”åˆ é™¤)	
 	
 linesize:
-	show linesize;	 --²é¿´µ±Ç°ÏÔÊ¾µÄ¿í¶È
-	set linesize num;--ÉèÖÃµ±Ç°ÏÔÊ¾µÄ¿í¶È
+	show linesize;	 --æŸ¥çœ‹å½“å‰æ˜¾ç¤ºçš„å®½åº¦
+	set linesize num;--è®¾ç½®å½“å‰æ˜¾ç¤ºçš„å®½åº¦
 		
 pagesize
-	show linesize;	 --ÏÔÊ¾Ã¿Ò³ÏÔÊ¾µÄĞĞÊı
-	set linesize;	 --ÉèÖÃÃ¿Ò³ÏÔÊ¾µÄĞĞÊı
+	show linesize;	 --æ˜¾ç¤ºæ¯é¡µæ˜¾ç¤ºçš„è¡Œæ•°
+	set linesize;	 --è®¾ç½®æ¯é¡µæ˜¾ç¤ºçš„è¡Œæ•°
 		
---Êı¾İ¿âÖĞÓÃµ½µÄÓïÑÔ·ÖÀà:
-	--Êı¾İ¶¨ÒåÓïÑÔ(DDL):
+--æ•°æ®åº“ä¸­ç”¨åˆ°çš„è¯­è¨€åˆ†ç±»:
+	--æ•°æ®å®šä¹‰è¯­è¨€(DDL):
 		create	alter	drop
-	--Êı¾İ²Ù×÷ÓïÑÔ(DML)
+	--æ•°æ®æ“ä½œè¯­è¨€(DML)
 		insert	delete	update 	select
-	--ÊÂÎñ¿ØÖÆÓïÑÔ(TCL)
-		commit(²åÈë)	savepoint(±£´æµã)	rollback(»Ø¹ö)
-	--Êı¾İ¿ØÖÆÓïÑÔ(DCL)
-		grant(ÊÚÈ¨)		revoke(»ØÊÕÈ¨ÏŞ)
+	--äº‹åŠ¡æ§åˆ¶è¯­è¨€(TCL)
+		commit(æ’å…¥)	savepoint(ä¿å­˜ç‚¹)	rollback(å›æ»š)
+	--æ•°æ®æ§åˆ¶è¯­è¨€(DCL)
+		grant(æˆæƒ)		revoke(å›æ”¶æƒé™)
 		
 		
 --select
-	(1)Ñ¡Ôñ²Ù×÷:²é¿´×Ö¶ÎÖĞÌØ¶¨ĞÅÏ¢
-	(2)Í¶Ó°²Ù×÷:²é¿´ÌØ¶¨×Ö¶Î
-	(3)Á¬½Ó²Ù×÷:¶à±í²Ù×÷
-	--±ğÃû
+	(1)é€‰æ‹©æ“ä½œ:æŸ¥çœ‹å­—æ®µä¸­ç‰¹å®šä¿¡æ¯
+	(2)æŠ•å½±æ“ä½œ:æŸ¥çœ‹ç‰¹å®šå­—æ®µ
+	(3)è¿æ¥æ“ä½œ:å¤šè¡¨æ“ä½œ
+	--åˆ«å
 		select fieldname "alias" from tablename;
 	
-	--Á¬½ÓÁ½¸ö×Ö¶Î
+	--è¿æ¥ä¸¤ä¸ªå­—æ®µ
 		select fieldname1||fieldname2 from tablename;
-		select fieldname1||'Á¬½Ó·ûºÅ'||fieldname2 from tablename;
+		select fieldname1||'è¿æ¥ç¬¦å·'||fieldname2 from tablename;
 	
-	--Á½¸ö¹Ø¼ü×Ö:
-		--°ÑnullÎªÖ¸¶¨Öµ
-		nvl(fieldname,Öµ) --eg:select nvl(fieldname,0) "age" from users;Èç¹ûageÎªnullÔòageÎª0
-		--È¥ÖØ¸´
+	--ä¸¤ä¸ªå…³é”®å­—:
+		--æŠŠnullä¸ºæŒ‡å®šå€¼
+		nvl(fieldname,å€¼) --eg:select nvl(fieldname,0) "age" from users;å¦‚æœageä¸ºnullåˆ™ageä¸º0
+		--å»é‡å¤
 		distinct --eg:select distinct fieldname1,fieldname2 from tablename;
 		
-	--·ñ¶¨±í´ïÊ½
+	--å¦å®šè¡¨è¾¾å¼
 	!=    <>   ^=
-	not between  and  --²»ÔÚÁ½ÕßÖ®¼ä
-	is not null --²»Îª¿Õ
-	is null --ÊÇ¿ÕÖµ
+	not between  and  --ä¸åœ¨ä¸¤è€…ä¹‹é—´
+	is not null --ä¸ä¸ºç©º
+	is null --æ˜¯ç©ºå€¼
 	
 	--like
-		%±íÊ¾0»ò¶à¸ö×Ö·û --eg:like 's\_%' ,\ÊÇ×ªÒå×Ö·û
+		%è¡¨ç¤º0æˆ–å¤šä¸ªå­—ç¬¦ --eg:like 's\_%' ,\æ˜¯è½¬ä¹‰å­—ç¬¦
 		
-	order by --ÅÅĞò Ä¬ÈÏÊÇÉıĞòasc,½µĞòÊÇdesc
+	order by --æ’åº é»˜è®¤æ˜¯å‡åºasc,é™åºæ˜¯desc
 			 --eg:select * from user order by username desc;
 	
-	--×¢Òâ: µ±ÒªÅÅĞò×Ö¶ÎÀïº¬ÓĞ¿ÕÖµÊ±,ÉıĞòÊ±£¬¿ÕÖµÔÚÄ©Î²,½µĞòÊ±£¬¿ÕÖµÅÅÔÚ¿ªÍ·
-		--(Ô­Òò:ÔÚÊı¾İ¿âÖĞ´æÖµÊ±,¿ÕÖµ±íÊ¾ÎŞÇî´ó)
-		--ÔÚ³ÌĞòÖĞ,Èç¹û³öÏÖ¿ÕÖµ,¼«Ò×²úÉúNullPointException
+	--æ³¨æ„: å½“è¦æ’åºå­—æ®µé‡Œå«æœ‰ç©ºå€¼æ—¶,å‡åºæ—¶ï¼Œç©ºå€¼åœ¨æœ«å°¾,é™åºæ—¶ï¼Œç©ºå€¼æ’åœ¨å¼€å¤´
+		--(åŸå› :åœ¨æ•°æ®åº“ä¸­å­˜å€¼æ—¶,ç©ºå€¼è¡¨ç¤ºæ— ç©·å¤§)
+		--åœ¨ç¨‹åºä¸­,å¦‚æœå‡ºç°ç©ºå€¼,ææ˜“äº§ç”ŸNullPointException
 		
-	--×Ö·ûĞÍ:
-		varchar2   	--¿É±ä³¤¶ÈµÄ×Ö·û´®	1-4000byte
-		char		--¹Ì¶¨³¤¶È			1-2000byte
-		long		--¿É±ä³¤¶ÈµÄ×Ö·û´®	×î³¤¿É´ï2gb
+	--å­—ç¬¦å‹:
+		varchar2   	--å¯å˜é•¿åº¦çš„å­—ç¬¦ä¸²	1-4000byte
+		char		--å›ºå®šé•¿åº¦			1-2000byte
+		long		--å¯å˜é•¿åº¦çš„å­—ç¬¦ä¸²	æœ€é•¿å¯è¾¾2gb
 		
-	--ÊıÖµÀàĞÍ:
-		number		--¼È¿ÉÒÔÕûÊıÒ²¿ÉÒÔÊÇĞ¡Êı
-	--ÈÕÆÚÀàĞÍ
-		date		--´æ´¢ÈÕÆÚºÍÊ±¼ä£¬¾«È·µ½Ãë
-		timestamp	--´æ´¢ÈÕÆÚ£¬£¬Ê±¼ä£¬¿ÉÒÔ¾«È·µ½Ğ¡ÊıµãºóÁùÎ»
-	--´óÊı¾İ¶ÔÏóÀàĞÍ
-		blob		--´æ´¢¶ş½øÖÆ¶ÔÏó£¬Ò»°ã´æ´¢½Ï´óµÄ£¬±ÈÈç:ÊÓÆµ£¬Í¼Æ¬
-		bfile		--ÒÔ¶ş½øÖÆµÄĞÎÊ½´æ´¢Ò»Ğ©½Ï´óµÄÎÄ¼ş
+	--æ•°å€¼ç±»å‹:
+		number		--æ—¢å¯ä»¥æ•´æ•°ä¹Ÿå¯ä»¥æ˜¯å°æ•°
+	--æ—¥æœŸç±»å‹
+		date		--å­˜å‚¨æ—¥æœŸå’Œæ—¶é—´ï¼Œç²¾ç¡®åˆ°ç§’
+		timestamp	--å­˜å‚¨æ—¥æœŸï¼Œï¼Œæ—¶é—´ï¼Œå¯ä»¥ç²¾ç¡®åˆ°å°æ•°ç‚¹åå…­ä½
+	--å¤§æ•°æ®å¯¹è±¡ç±»å‹
+		blob		--å­˜å‚¨äºŒè¿›åˆ¶å¯¹è±¡ï¼Œä¸€èˆ¬å­˜å‚¨è¾ƒå¤§çš„ï¼Œæ¯”å¦‚:è§†é¢‘ï¼Œå›¾ç‰‡
+		bfile		--ä»¥äºŒè¿›åˆ¶çš„å½¢å¼å­˜å‚¨ä¸€äº›è¾ƒå¤§çš„æ–‡ä»¶
 		
-	--Êı¾İ¿â²Ù×÷µÄ³£ÓÃº¯Êı
-		--(1)×Ö·û´¦Àíº¯Êı
-			lower(fieldname) --×ª»»³ÉĞ¡Ğ´
-			upper(fieldname) --×ª»»³É´óĞ´
-			initcap(fieldname) --°ÑÊ××ÖÄ¸×ª»»³É´óĞ´
-			concat(fieldname1,fieldname2) --Á¬½ÓÁ½¸ö×Ö·û´®
-			substr(fieldname,startIndex,length) --½ØÈ¡×Ö·û´®,startIndexÈ¡ÕıÔò´Ó×óÏòÓÒ£¬È¡¸ºÔò´ÓÓÒÏò×ó
+	--æ•°æ®åº“æ“ä½œçš„å¸¸ç”¨å‡½æ•°
+		--(1)å­—ç¬¦å¤„ç†å‡½æ•°
+			lower(fieldname) --è½¬æ¢æˆå°å†™
+			upper(fieldname) --è½¬æ¢æˆå¤§å†™
+			initcap(fieldname) --æŠŠé¦–å­—æ¯è½¬æ¢æˆå¤§å†™
+			concat(fieldname1,fieldname2) --è¿æ¥ä¸¤ä¸ªå­—ç¬¦ä¸²
+			substr(fieldname,startIndex,length) --æˆªå–å­—ç¬¦ä¸²,startIndexå–æ­£åˆ™ä»å·¦å‘å³ï¼Œå–è´Ÿåˆ™ä»å³å‘å·¦
 			
-		--ÔÚoracleÖĞÌá¹©ÁËÒ»¸öĞé±ídual ÓÃÀ´²âÊÔº¯Êı»ò×öÔËËã
+		--åœ¨oracleä¸­æä¾›äº†ä¸€ä¸ªè™šè¡¨dual ç”¨æ¥æµ‹è¯•å‡½æ•°æˆ–åšè¿ç®—
 		
-		--(2)ÊıÖµº¯Êı
-			round(num,bit) --ËÄÉáÎåÈë,bit±íÊ¾Ğ¡Êıµãºó¼¸Î»,¿ÉÎª¸ºÊı,0Îª¸÷Î»
-			trunc(num,bit) --½ØÈ¡
+		--(2)æ•°å€¼å‡½æ•°
+			round(num,bit) --å››èˆäº”å…¥,bitè¡¨ç¤ºå°æ•°ç‚¹åå‡ ä½,å¯ä¸ºè´Ÿæ•°,0ä¸ºå„ä½
+			trunc(num,bit) --æˆªå–
 			
-		--(3)ÈÕÆÚº¯Êı
-			--È«ÈÕÖÆ¸ñÊ½:Äê,ÔÂ,ÈÕ,Ê±·ÖÃë
-			--È±Ê¡¸ñÊ½:		ÈÕ-ÔÂ-Äê,dd-mon-rr
-			--·µ»Øµ±Ç°ÈÕÆÚ sysdate
-			--·µ»ØÃ÷ÌìµÄÈÕÆÚ sysdate+1
-			--Ê®·ÖÖÓºóµÄÈÕÆÚ£¿£¿£¿£¿£¿£¿
+		--(3)æ—¥æœŸå‡½æ•°
+			--å…¨æ—¥åˆ¶æ ¼å¼:å¹´,æœˆ,æ—¥,æ—¶åˆ†ç§’
+			--ç¼ºçœæ ¼å¼:		æ—¥-æœˆ-å¹´,dd-mon-rr
+			--è¿”å›å½“å‰æ—¥æœŸ sysdate
+			--è¿”å›æ˜å¤©çš„æ—¥æœŸ sysdate+1
+			--ååˆ†é’Ÿåçš„æ—¥æœŸï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿ
 			
-			months_between(to_date(strDate1,formate),to_date(strDate2,formate));--ÇóÔÂ·İ²î
-			next_day(to_date(strDate1,formate),"MONDAY"); --ÏÂ¸öĞÇÆÚµÄÈÕÆÚ
-			last_day(date);--Õâ¸öÔÂµÄ×îºóÒ»Ìì
-			trunc(ÈÕÆÚ,)
+			months_between(to_date(strDate1,formate),to_date(strDate2,formate));--æ±‚æœˆä»½å·®
+			next_day(to_date(strDate1,formate),"MONDAY"); --ä¸‹ä¸ªæ˜ŸæœŸçš„æ—¥æœŸ
+			last_day(date);--è¿™ä¸ªæœˆçš„æœ€åä¸€å¤©
+			trunc(æ—¥æœŸ,)
 			
-		--(4)×ª»»º¯Êı
-			--ÒşÊ½×ª»»£¬µ±×Ö·û´®È«ÊÇ0-9Êı×ÖÊ±»á·¢ÉúÒşÊ½×ª»»
-			to_number(str); --×Ö·û´®×ª»»³ÉÊı
-			to_char(num,format); --Êı×ª»»³É×Ö·û´®
+		--(4)è½¬æ¢å‡½æ•°
+			--éšå¼è½¬æ¢ï¼Œå½“å­—ç¬¦ä¸²å…¨æ˜¯0-9æ•°å­—æ—¶ä¼šå‘ç”Ÿéšå¼è½¬æ¢
+			to_number(str); --å­—ç¬¦ä¸²è½¬æ¢æˆæ•°
+			to_char(num,format); --æ•°è½¬æ¢æˆå­—ç¬¦ä¸²
 			
-		--(5)×éº¯Êı
+		--(5)ç»„å‡½æ•°
 			avg()
 			max()
 			min()
 			sum()
 			count()
-			stddev() --±ê×¼²î
+			stddev() --æ ‡å‡†å·®
 			
-		--±ğÃû£º
-			(1)¼ÓË«ÒıºÅ
-			(2)Ö±½Ó ÎŞ·¨±ÜÃâ¿Õ¸ñ eg:firstname lastname
+		--åˆ«åï¼š
+			(1)åŠ åŒå¼•å·
+			(2)ç›´æ¥ æ— æ³•é¿å…ç©ºæ ¼ eg:firstname lastname
 			(3)as aliasname;
 			
 			
-		havingÓÃÔÚgroup byÖ®ºó£¬¶Ô·Ö×éµÄÊı¾İ½øĞĞ¹ıÂË£¬whereÊÇÔÚgroup byÖ®Ç°
+		havingç”¨åœ¨group byä¹‹åï¼Œå¯¹åˆ†ç»„çš„æ•°æ®è¿›è¡Œè¿‡æ»¤ï¼Œwhereæ˜¯åœ¨group byä¹‹å‰
 		
 		
-	--Á¬½Ó
-		(1)--ÄÚÁ¬½Ó
-			--Âú×ãÌõ¼şµÄÊı¾İ±£Áô,²»Âú×ãµÄÈ«²¿ÉáÆú
-		(2)--ÍâÁ¬½Ó:
-			×óÍâÁ¬½Ó(left outer join):È·¶¨Ö÷±í:Ö÷±íÊÇleft outer joinÇ°ÃæµÄÄÇ¸ö±í,Ò²½Ğ×ö»ù±í
-			ÓÒÍâÁ¬½Ó(right outer join):ÒÔÓÒ±ßµÄÎªÖ÷±í
-			È«Á¬½Ó(full outer join):¶ÔÁ½¸ö±íÖĞµÄÆ¥ÅäµÄĞÅÏ¢ºÍ²»Æ¥ÅäµÄĞÅÏ¢¶¼ÏÔÊ¾³öÀ´
+	--è¿æ¥
+		(1)--å†…è¿æ¥
+			--æ»¡è¶³æ¡ä»¶çš„æ•°æ®ä¿ç•™,ä¸æ»¡è¶³çš„å…¨éƒ¨èˆå¼ƒ
+		(2)--å¤–è¿æ¥:
+			å·¦å¤–è¿æ¥(left outer join):ç¡®å®šä¸»è¡¨:ä¸»è¡¨æ˜¯left outer joinå‰é¢çš„é‚£ä¸ªè¡¨,ä¹Ÿå«åšåŸºè¡¨
+			å³å¤–è¿æ¥(right outer join):ä»¥å³è¾¹çš„ä¸ºä¸»è¡¨
+			å…¨è¿æ¥(full outer join):å¯¹ä¸¤ä¸ªè¡¨ä¸­çš„åŒ¹é…çš„ä¿¡æ¯å’Œä¸åŒ¹é…çš„ä¿¡æ¯éƒ½æ˜¾ç¤ºå‡ºæ¥
 			
-			ÎŞÂÛÊÇ×óÍâÁ¬½Ó»¹ÊÇÓÒÍâÁ¬½ÓµÃµ½µÄÊı¾İÊıÁ¿µÈÓÚÄÚÁ¬½Ó²éÑ¯µ½µÄÊı¾İÊıÁ¿¼ÓÉÏÃ»ÓĞÆ¥ÅäµÄÊıÁ¿
+			æ— è®ºæ˜¯å·¦å¤–è¿æ¥è¿˜æ˜¯å³å¤–è¿æ¥å¾—åˆ°çš„æ•°æ®æ•°é‡ç­‰äºå†…è¿æ¥æŸ¥è¯¢åˆ°çš„æ•°æ®æ•°é‡åŠ ä¸Šæ²¡æœ‰åŒ¹é…çš„æ•°é‡
 			
-			¶ÔÓÚ×óÓÒÁ¬½Ó»¹ÓĞÒ»ÖÖ±íÊ¾·½Ê½£º(+) (¡ª)
-				ÔÚwhereÌõ¼şºóÃæ¼ÓÉÏ(+)»ò(¡ª):
+			å¯¹äºå·¦å³è¿æ¥è¿˜æœ‰ä¸€ç§è¡¨ç¤ºæ–¹å¼ï¼š(+) (â€”)
+				åœ¨whereæ¡ä»¶åé¢åŠ ä¸Š(+)æˆ–(â€”):
 					eg:select * from tablename1,tablename2 where tablename1.fieldname1 = tablename2.fieldname3(+)
-					eg±íÊ¾tablename1ÊÇÖ÷±í,(+)µÄ¶ÔÃæÊÇÖ÷±í;
+					egè¡¨ç¤ºtablename1æ˜¯ä¸»è¡¨,(+)çš„å¯¹é¢æ˜¯ä¸»è¡¨;
 	
-	--×Ó²éÑ¯
-		µ¥ĞĞ²éÑ¯
-		¶àĞĞ²éÑ¯
+	--å­æŸ¥è¯¢
+		å•è¡ŒæŸ¥è¯¢
+		å¤šè¡ŒæŸ¥è¯¢
 		
 	SELECT *
 
@@ -192,92 +192,92 @@ DML select:
 		
 		delete from tablename where Condition;
 		
-¶ÔÊı¾İ¿âÖĞµÄ±íµÄ²Ù×÷
-		create table tablename(fieldname varchar2 not null,...);  	--´´½¨±í
-		alter table tablename add(fieldname type);					--Ìí¼ÓÁĞ
-		alter table tablename drop(fieldname);						--É¾³ıÁĞ
+å¯¹æ•°æ®åº“ä¸­çš„è¡¨çš„æ“ä½œ
+		create table tablename(fieldname varchar2 not null,...);  	--åˆ›å»ºè¡¨
+		alter table tablename add(fieldname type);					--æ·»åŠ åˆ—
+		alter table tablename drop(fieldname);						--åˆ é™¤åˆ—
 		
 		savepoint ss;
 			...
 		rollback to ss;
 		
-		É¾³ı±íµÄÈıÖÖ·½·¨
-			delete ×öÉ¾³ıµÄÊ±ºò,°ÑÊı¾İunused,Êı¾İ»¹ÔÚ»º³åÇøÖĞ
-			truncate table tablename [cascade contraints];Ö±½ÓÉ¾µôËùÓĞÊı¾İ(ÎŞ·¨rollback,Ä¬ÈÏÓĞcommit;²Ù×÷)
-			drop table tablename;(¼¶ÁªÉ¾³ı)
-E-RÍ¼
-	ÊµÌåÁªÏµÍ¼ ÊµÌå¹ØÏµÍ¼
+		åˆ é™¤è¡¨çš„ä¸‰ç§æ–¹æ³•
+			delete åšåˆ é™¤çš„æ—¶å€™,æŠŠæ•°æ®unused,æ•°æ®è¿˜åœ¨ç¼“å†²åŒºä¸­
+			truncate table tablename [cascade contraints];ç›´æ¥åˆ æ‰æ‰€æœ‰æ•°æ®(æ— æ³•rollback,é»˜è®¤æœ‰commit;æ“ä½œ)
+			drop table tablename;(çº§è”åˆ é™¤)
+E-Rå›¾
+	å®ä½“è”ç³»å›¾ å®ä½“å…³ç³»å›¾
 	
-	ÓĞÄÄĞ©ÊµÌå?
-	ÊµÌå --Ò»¸ö¸öÌå Ñ§Éú ²¿ÃÅ Ô±¹¤				------¾ØĞÎ
-	ÊôĞÔ --Ñ§Éú:Ñ§ºÅ,ĞÕÃû,ÄêÁä,×¨Òµ				------ÍÖÔ²
-	ÁªÏµ --ÊµÌåÓëÊôĞÔÖ®¼äµÄÁªÏµ	ÊµÌåÓëÊµÌå		------ÁâĞÎ
+	æœ‰å“ªäº›å®ä½“?
+	å®ä½“ --ä¸€ä¸ªä¸ªä½“ å­¦ç”Ÿ éƒ¨é—¨ å‘˜å·¥				------çŸ©å½¢
+	å±æ€§ --å­¦ç”Ÿ:å­¦å·,å§“å,å¹´é¾„,ä¸“ä¸š				------æ¤­åœ†
+	è”ç³» --å®ä½“ä¸å±æ€§ä¹‹é—´çš„è”ç³»	å®ä½“ä¸å®ä½“		------è±å½¢
 	
-	ËûÃÇÖ®¼äÓÃ ÎŞÏòÏß Á¬½Ó
+	ä»–ä»¬ä¹‹é—´ç”¨ æ— å‘çº¿ è¿æ¥
 	
-	ÓĞÄÄĞ©ÁªÏµ:
-	Ò»¶ÔÒ»
-	Ò»¶Ô¶à
-	¶à¶Ô¶à
-		--ÊÂÎñ:Ò»¸öÍêÕûµÄÖ´ĞĞµ¥Ôª,ÔÚÁ½¸öcommit»òÕßrollbackÖ®¼äµÄ²Ù×÷(DML)³ÉÎªÒ»¸öÊÂÎñ
-		--Ç°Ò»¸öÊÂÎñµÄ½áÊøÊÇÁíÒ»¸öÊÂÎñµÄ¿ªÊ¼:
-			1,commit:Êı¾İ¿âÊÂÎñÌá½»,½«±ä»¯Ğ´ÈëÊı¾İ¿â
-			  rollback:Êı¾İ¿âÊÂÎñ»ØÍË,³·Ïú¶ÔÊı¾İµÄĞŞ¸Ä(rollback;rollback to savepoint_name)
-			2,DDL,DCL,Ò»µ©·¢Éú,ÊÂÎñ»á×Ô¶¯Ìá½»
+	æœ‰å“ªäº›è”ç³»:
+	ä¸€å¯¹ä¸€
+	ä¸€å¯¹å¤š
+	å¤šå¯¹å¤š
+		--äº‹åŠ¡:ä¸€ä¸ªå®Œæ•´çš„æ‰§è¡Œå•å…ƒ,åœ¨ä¸¤ä¸ªcommitæˆ–è€…rollbackä¹‹é—´çš„æ“ä½œ(DML)æˆä¸ºä¸€ä¸ªäº‹åŠ¡
+		--å‰ä¸€ä¸ªäº‹åŠ¡çš„ç»“æŸæ˜¯å¦ä¸€ä¸ªäº‹åŠ¡çš„å¼€å§‹:
+			1,commit:æ•°æ®åº“äº‹åŠ¡æäº¤,å°†å˜åŒ–å†™å…¥æ•°æ®åº“
+			  rollback:æ•°æ®åº“äº‹åŠ¡å›é€€,æ’¤é”€å¯¹æ•°æ®çš„ä¿®æ”¹(rollback;rollback to savepoint_name)
+			2,DDL,DCL,ä¸€æ—¦å‘ç”Ÿ,äº‹åŠ¡ä¼šè‡ªåŠ¨æäº¤
 			3,
 			
-	Ö÷¼üÔ¼ÊøµÄÊı¾İ±£Ö¤²»ÄÜÖØ¸´,²¢ÇÒ²»ÄÜÎª¿ÕÖµ---Î¨Ò»ĞÔ
-	Ö÷¼ü¿ÉÒÔ²»Ö»Ò»ÁĞ
+	ä¸»é”®çº¦æŸçš„æ•°æ®ä¿è¯ä¸èƒ½é‡å¤,å¹¶ä¸”ä¸èƒ½ä¸ºç©ºå€¼---å”¯ä¸€æ€§
+	ä¸»é”®å¯ä»¥ä¸åªä¸€åˆ—
 	alter table tablename add primary key(fieldlist...)
 	alter table tablename drop primary key(fieldlist...)
-	alter table tablename rename constraint oldÖ÷¼üÃû to newÖ÷¼üÃû(fieldlist...)
+	alter table tablename rename constraint oldä¸»é”®å to newä¸»é”®å(fieldlist...)
 	
-	uniqueÎ¨Ò»Ô¼Êø,¿ÉÒÔÎª¿Õ
+	uniqueå”¯ä¸€çº¦æŸ,å¯ä»¥ä¸ºç©º
 	
 	create table tablename(
 		fieldname type .. foreign key(fieldname) references tablename1(fieldname1) no delete [cascade]||[set null]
 	)
 	
-	no delete --Éè¶¨Íâ¼üËù¹ØÁªµÄÖ÷¼ü±»É¾³ıÊ±,¹ØÁªµÄÍâ¼üÊÇ·ñ±»É¾³ı,Èç¹ûÓÃcascade,Ôò¼¶ÁªÉ¾³ı,Èôset nullÉ¾³ıºóÍâ¼üÎªnull
+	no delete --è®¾å®šå¤–é”®æ‰€å…³è”çš„ä¸»é”®è¢«åˆ é™¤æ—¶,å…³è”çš„å¤–é”®æ˜¯å¦è¢«åˆ é™¤,å¦‚æœç”¨cascade,åˆ™çº§è”åˆ é™¤,è‹¥set nullåˆ é™¤åå¤–é”®ä¸ºnull
 	
-	×¢Òâ:Íâ¼üÒıÓÃ²»ÁËÖ÷¼ü
+	æ³¨æ„:å¤–é”®å¼•ç”¨ä¸äº†ä¸»é”®
 	
-	ORA-02270:´ËÁĞÁĞ±íµÄÎ¨Ò»»òÖ÷¼ü²»Æ¥Åä
+	ORA-02270:æ­¤åˆ—åˆ—è¡¨çš„å”¯ä¸€æˆ–ä¸»é”®ä¸åŒ¹é…
 	
-	¼ì²éÔ¼Êø ³ıÁË¿ÉÒÔ²åÈëÔ¼ÊøÌõ¼şÄÚµÄÊı¾İ,»¹¿ÉÒÔ²åÈënull
+	æ£€æŸ¥çº¦æŸ é™¤äº†å¯ä»¥æ’å…¥çº¦æŸæ¡ä»¶å†…çš„æ•°æ®,è¿˜å¯ä»¥æ’å…¥null
 	
-	alter table tablename add constraint Ô¼ÊøÃû check(fieldname ÔËËã·û Öµ)
+	alter table tablename add constraint çº¦æŸå check(fieldname è¿ç®—ç¬¦ å€¼)
 	
-	--´´½¨Ë÷Òı
+	--åˆ›å»ºç´¢å¼•
 	create [unique] index indexname on tablename(fieldlist);
 	
-	create [or replace] [force »òÕß noforce] view viewname [aliasname] as ²éÑ¯Óï¾ä
+	create [or replace] [force æˆ–è€… noforce] view viewname [aliasname] as æŸ¥è¯¢è¯­å¥
 	
-	or replace:Èç¹ûÊÓÍ¼ÒÑ¾­´æÔÚ,oracle»áÖØĞÂ´´½¨¸ÃÊÓÍ¼
+	or replace:å¦‚æœè§†å›¾å·²ç»å­˜åœ¨,oracleä¼šé‡æ–°åˆ›å»ºè¯¥è§†å›¾
 	
-plSQL ÊÇÒ»ÃÅ¹ı³Ì»¯ÓïÑÔ
-	¿é------>¹ı³Ì		º¯Êı------>°ü(°üÍ·,°üÌå)
+plSQL æ˜¯ä¸€é—¨è¿‡ç¨‹åŒ–è¯­è¨€
+	å—------>è¿‡ç¨‹		å‡½æ•°------>åŒ…(åŒ…å¤´,åŒ…ä½“)
 	
-Êı¾İµÄ´¦Àí
-	Óï¾ä²Ù×÷:
+æ•°æ®çš„å¤„ç†
+	è¯­å¥æ“ä½œ:
 		if then else end if;
 		loop    end loop;
 	
-	±à³Ì·ÖÎªÈı¸ö²¿·Ö:
-		¶¨Òå²¿·Ö,Ö´ĞĞ²¿·Ö,ÀıÍâ²¿·Ö
+	ç¼–ç¨‹åˆ†ä¸ºä¸‰ä¸ªéƒ¨åˆ†:
+		å®šä¹‰éƒ¨åˆ†,æ‰§è¡Œéƒ¨åˆ†,ä¾‹å¤–éƒ¨åˆ†
 		
-		declare --¶¨Òå
+		declare --å®šä¹‰
 		
-		create [or replace] procedure procInsert [name in[or out] varchar(20)] is --in/out ÊäÈë/Êä³ö
+		create [or replace] procedure procInsert [name in[or out] varchar(20)] is --in/out è¾“å…¥/è¾“å‡º
 		begin
 			insert ....
 		end
 		
-		exec procInsert;--Ö´ĞĞ
+		exec procInsert;--æ‰§è¡Œ
 		
-		show error;--ÏÔÊ¾´íÎó
+		show error;--æ˜¾ç¤ºé”™è¯¯
 		
-		name varchar2(20):='maxu'; ----¶¨Òå³£Á¿
+		name varchar2(20):='maxu'; ----å®šä¹‰å¸¸é‡
 		
 		
 	update tablename set fieldname=value;
