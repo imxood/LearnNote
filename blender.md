@@ -43,6 +43,8 @@
 
     Space 功能搜索
 
+    Ctrl Tab 选择点,线,面
+
 # Blender技巧
 
 ### 原点设置
