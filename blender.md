@@ -167,3 +167,5 @@ Blender未知问题集合:
 4. 3D View: 3D Navigation
     视图操作, 六视图, 光标操作, 可锁定模型到摄像头焦点
 5. 3D View: Layer Management
+6. 3D View: Screencast Keys
+    显示按键及鼠标操作插件, 需要手动安装

@@ -53,3 +53,28 @@ openocd -f /usr/local/share/openocd/scripts/interface/stlink.cfg -f /usr/local/s
     ]
 }
 ```
+
+这里做一下使用f103c8t6最小系统的笔记
+
+使用HAL库
+
+## GPIO
+    1. 每个GPIO端口都需要按32位字被访问
+    2. 每个GPIO端口都有7个寄存器来控制:
+        2个32位的端口配置寄存器 CRL和CRH
+        2个32位的数据寄存器 IDR和ODR
+        1个32位的置位/复位寄存器 BSRR
+        1个16位的复位寄存器 BRR
+        1个32位的锁存寄存器 LCKR
+
+
+## 板上常用资源
+    板载LED:
+        LED0    PC13
+
+    板载key:
+        S1  RESET
+        S2  PA0
+
+## 需求
+    1. 按键控制
