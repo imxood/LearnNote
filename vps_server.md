@@ -24,26 +24,27 @@
     配置文件是: /etc/supervisor/supervisord.conf
 
 ### 安装shadowsocks server
-    sudo -H pip2 install shadowsocks && sudo mkdir -p /etc/shadowsocks && sudo vim /etc/shadowsocks/config.json
 
-    添加如下内容:
-    {
-        "server":"::",
-        "server_port":8388,
-        "local_address": "127.0.0.1",
-        "local_port":1080,
-        "password":"mypassword",
-        "timeout":300,
-        "method":"aes-256-cfb",
-        "fast_open": false
-    }
+sudo -H pip2 install shadowsocks && sudo mkdir -p /etc/shadowsocks && sudo vim /etc/shadowsocks/config.json
 
-    添加自启动配置文件:
-    sudo vim /etc/supervisor/conf.d/shadowsocks.conf
+添加如下内容:
+{
+    "server":"::",
+    "server_port":8388,
+    "local_address": "127.0.0.1",
+    "local_port":1080,
+    "password":"mypassword",
+    "timeout":300,
+    "method":"aes-256-cfb",
+    "fast_open": false
+}
 
-    添加如下内容:
-    [program:ssserver]
-    command=/usr/local/bin/ssserver -c /etc/shadowsocks/config.json
+添加自启动配置文件:
+sudo vim /etc/supervisor/conf.d/shadowsocks.conf
+
+添加如下内容:
+[program:ssserver]
+command=/usr/local/bin/ssserver -c /etc/shadowsocks/config.json
 
 ### tank云盘
     sudo apt install -y mysql-server mysql-client golang 注意提示mysql的root密码
