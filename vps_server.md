@@ -77,3 +77,67 @@
     sudo supervisorctl reload
 
     ssh root@104.194.91.4
+
+
+## 安装ftp服务
+    需求：创建一个ftp用户，用户名：testUser，密码：testUser，连接端口：30000，该用户只能访问/home/test/testDir 下的内容
+
+    1)如果没有安装vsftpd，需先安装vsftpd
+
+    apt-get install vsftpd
+
+    
+
+    2）创建用户
+
+    useradd test -m
+
+    为该用户添加密码
+
+    passwd testUser 回车
+
+    输入密码：testUser
+
+
+    3）修改配置文件
+
+    (1) vi /etc/vsftpd.conf 
+
+    修改或添加如下行：
+
+    anonymous_enable=NO
+
+    local_enable=YES
+
+    write_enable=YES
+
+    chroot_local_user=NO
+
+    chroot_list_file=/etc/vsftpd.chroot_list
+
+    
+    (2) vi vsftpd.chroot_list
+
+    在单独一行添加:test
+
+    （3）如果没有vsftpd_user_config，则创建该目录
+
+    mkdir vsftpd_user_config
+
+    cd vsftpd_user_config
+
+    vi test
+
+    添加 local_root=/home/test/ftp
+
+    
+
+    4）重启vsftpd
+
+    service vsftpd restart
+
+    
+
+    假设是在ip为192.168.10.1上创建的ftp用户
+
+    在浏览器下访问ftp的格式为：ftp://192.168.10.1
