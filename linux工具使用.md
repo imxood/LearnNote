@@ -312,23 +312,23 @@ mplayer没有声音:
     https://trac.ffmpeg.org/wiki/CompilationGuide/Centos
 
 
-centos7安装chrome-gnome-shell:
-yum install gtk3-devel.x86_64
-pip install PyGObject
-git clone git://git.gnome.org/chrome-gnome-shell
-cd chrome-gnome-shell
-mkdir out && cd out
-cmake -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_EXTENSION=OFF ../
-make && sudo make install
+## centos7安装chrome-gnome-shell:
+    yum install gtk3-devel.x86_64
+    pip install PyGObject
+    git clone git://git.gnome.org/chrome-gnome-shell
+    cd chrome-gnome-shell
+    mkdir out && cd out
+    cmake -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_EXTENSION=OFF ../
+    make && sudo make install
 
 
-vi ~/.lftp/rc:
-    set ftp:charset GBK
-    set file:charset UTF-8
-    set ftp:passive-mode no
+    vi ~/.lftp/rc:
+        set ftp:charset GBK
+        set file:charset UTF-8
+        set ftp:passive-mode no
 
-编译amule:
-yum install -y make automake autoconf gettext zlib-devel wxGTK-devel gcc gcc-c++ kernel-headers binutils-devel bison libupnp
+## 编译amule:
+    yum install -y make automake autoconf gettext zlib-devel wxGTK-devel gcc gcc-c++ kernel-headers binutils-devel bison libupnp
 
 先编译crypto++:
 git clone https://github.com/weidai11/cryptopp.git
@@ -402,3 +402,9 @@ dia-normal "$@"
 
 
 ## gcp 拷贝工具
+
+
+## audacity 声音录制
+
+## 串口工具
+    cutecom picocom
