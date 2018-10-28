@@ -1,52 +1,107 @@
 #!/bin/bash
 # vps server ubuntu配置
 
-### 安装常用软件
+## 安装常用软件
     sudo apt install -y vim python2.7 python-pip git
     sudo -H pip2 install --upgrade pip
 
-### 添加用户, 分配权限
+## 添加用户, 分配权限
     sudo useradd -m imxood
     sudo usermod -a -G sudo,adm,ssh imxood
 
-### 为新用户设置密码
+## 为新用户设置密码
     sudo passwd imxood
 
-### 使用新用户操作
+## 使用新用户操作
     sudo su imxood
 
-### 创建develop文件夹
+## 创建develop文件夹
     mkdir ~/develop -p
     ~/develop
 
-### 安装进程管理工具
+## 安装进程管理工具
     sudo apt install -y supervisor
     配置文件是: /etc/supervisor/supervisord.conf
 
-### 安装shadowsocks server
-
+## 安装shadowsocks server
+~~~
 sudo -H pip2 install shadowsocks && sudo mkdir -p /etc/shadowsocks && sudo vim /etc/shadowsocks/config.json
-
+~~~
 添加如下内容:
+~~~
 {
-    "server":"::",
+    "server":"xxx",
     "server_port":8388,
     "local_address": "127.0.0.1",
     "local_port":1080,
-    "password":"mypassword",
+    "password":"xxx",
     "timeout":300,
     "method":"aes-256-cfb",
     "fast_open": false
 }
+~~~
 
-添加自启动配置文件:
+### 添加自启动配置文件:
 sudo vim /etc/supervisor/conf.d/shadowsocks.conf
 
-添加如下内容:
+### 添加如下内容:
+~~~
 [program:ssserver]
 command=/usr/local/bin/ssserver -c /etc/shadowsocks/config.json
+~~~
 
-### tank云盘
+
+## kcptun server, 加速shadowsocks服务
+
+linux版:
+wget https://github.com/xtaci/kcptun/releases/download/v20181002/kcptun-linux-amd64-20181002.tar.gz
+sudo tar -xvf kcptun-linux-amd64-20181002.tar.gz -C /usr/bin/
+sudo vim /etc/kcptun-config.json
+~~~
+{
+    "listen": ":10001",
+    "target": "127.0.0.1:10000",
+    "key": "xxx",
+    "crypt": "aes",
+    "mode": "fast2",
+    "mtu": 1350,
+    "sndwnd": 1024,
+    "rcvwnd": 1024,
+    "datashard": 10,
+    "parityshard": 3,
+    "dscp": 0,
+    "nocomp": false,
+    "quiet": false,
+    "pprof": false
+}
+~~~
+
+windows版:
+https://github.com/shadowsocks/kcptun/releases/download/v20170718/kcptun-windows-amd64-20170718.tar.gz
+
+### 添加自启动配置文件:
+sudo vim /etc/supervisor/conf.d/kcptun.conf
+~~~
+[program:kcptun]
+command=/usr/bin/server_linux_amd64 -c /etc/kcptun-config.json
+redirect_stderr=true
+stdout_logfile=/tmp/kcptun.log
+~~~
+
+
+## ssh配置
+
+vim /etc/ssh/sshd_config
+~~~
+Port 22
+
+ClientAliveInterval 60
+ClientAliveCountMax 3
+~~~
+
+
+
+## tank云盘(一个小工具, 似乎没哈用)
     sudo apt install -y mysql-server mysql-client golang 注意提示mysql的root密码
     外网访问:
     sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
@@ -76,9 +131,6 @@ command=/usr/local/bin/ssserver -c /etc/shadowsocks/config.json
     command=/home/imxood/develop/tank-1.0.5/tank
 
     sudo supervisorctl reload
-
-    ssh root@104.194.91.4
-
 
 ## 安装ftp服务
     需求：创建一个ftp用户，用户名：testUser，密码：testUser，连接端口：30000，该用户只能访问/home/test/testDir 下的内容
