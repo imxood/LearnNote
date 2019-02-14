@@ -720,3 +720,7 @@ fc-list :lang=zh
 
 lsof -p 21943
 sudo ls -l /proc/21943/fd
+
+## update-locale example
+    update-locale LANG=en_CA.UTF-8 LANGUAGE
+    # sets LANG to en_CA.UTF-8 and removes definitions for LANGUAGE.
