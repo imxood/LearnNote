@@ -724,3 +724,10 @@ sudo ls -l /proc/21943/fd
 ## update-locale example
     update-locale LANG=en_CA.UTF-8 LANGUAGE
     # sets LANG to en_CA.UTF-8 and removes definitions for LANGUAGE.
+
+
+## sudo make install后，comamnd can't find *.so
+    run:
+        ldconfig
+    the dynamic library cache needs to be updated with the command ldconfig.
+
